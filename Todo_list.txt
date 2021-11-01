@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang=" en"><head>
+  <title>To-Do-List</title>
+  <link rel="icon" href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQLpzEYgG2FEx9pNfINhwpW2ErNgvWkvAWe5HovwMURuzEiD_eWDvy95UM451QBwqBoLjc&usqp=CAU">
+  <link href="https://fonts.googleapis.com/css2?family=Lobster&family=Qahiri&display=swap" rel="stylesheet">
+</head>
+<style>
+  *{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+  }
+  body{
+    background-color:rgb(249, 243, 223)
+  }
+  .card{
+    display:flex;
+    align-content: center;
+    position:absolute;
+    border-radius:30px 30px;
+    width: 50%;
+    height: 50%;
+    margin-top: 15%;
+    margin-left: 25%;
+    background-color: rgb(252, 216, 212);
+  }
+  .conatainer{
+    align-content: middle;
+    position: relative;
+    top:20px;
+    left: 250px;
+   
+    }
+    row{
+      font-family: 'Lobster', cursive;
+      align-content: center;
+      position: relative;
+      left: 30px;
+       } 
+       .heading{
+      font-family: 'Lobster', cursive;
+      align-content: center;
+      position: relative;
+      left: 65px;
+      top:20px;
+       }
+      .input-group{
+        margin-top:50px;
+        font-size: 20px;
+      
+      }
+      #box{
+        width: 200%;
+        border: transparent;
+        border-radius: 20px;
+        height: 30px;
+      }
+      #box:hover{
+        border: transparent;
+      }
+      .conatainer.from-group{
+      background: transparent;
+      color: red;
+      margin-left: 200px;
+      
+      
+    
+    }
+    .btn{
+      color: whitesmoke;
+      border: transparent;
+      width: 100%;
+      border-radius: 20px;
+      background-color:#810000;
+      margin-top: 20px;
+      font-size:20px;
+      letter-spacing: 1px;
+      font-family: 'Rampart One', cursive;
+      transition: all 1s ease-in-out;
+      position: relative;
+      left: 80px ;
+    
+    }
+    .btn:hover{
+      cursor: pointer;
+      background-color: #8E7F7F;
+      width:150%;
+    }
+
+    
+  
+</style>
+<body>
+ <div class="card">
+  <div class='conatainer'>
+    <h1 class="heading">TO-DO LIST</h1>
+    <br><br>
+    <div class="row">
+      <from>
+        <div class="input-group">
+          <input type="text" placeholder="todo-item" id='box' class="input"> 
+        </div>
+        <br>
+        <div class="from-group">
+          <input type="button" value="Add"  onclick="add_item()" class="btn">
+        </div>
+      </from>
+    </div>
+  </div>
+  <div class="row">
+    <ul id="list_item">
+    </ul>
+  </div>
+ </div>
+  <script>
+    function add_item(){
+      let item = document.getElementById('box');
+      let list_item = document.getElementById('list_item');
+      if(item.value != ""){
+        let make_li = document.createElement('li');
+         make_li.appendChild(document.createTextNode(item.value));
+         list_item.appendChild(make_li);
+         item.value="";
+         make_li.onclick =function(){
+           this.parentNode.removeChild(this);
+         }
+      }
+      else{
+        alert("Please add a value to item");
+      }
+    }
+
+  </script>
+</body>
+</html>
